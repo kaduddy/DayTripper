@@ -1,0 +1,46 @@
+<div class="container">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="colapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/users/<%=@user.id%>" class="navbar-brand"><%=@user.f_name%> <%=@user.l_name%></a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            <ul class="nav navbar-nav">
+	                    <li>
+	                        <a href="/itineraries/new/<%=@user.id%>">Plan a Trip</a>
+	                    </li>
+	                    <li>
+	                        <a href="/sessions/destroy">Logout</a>
+	                    </li>
+	            </ul>
+	            <form class="navbar-form navbar-right">
+	            	<div class="form-group">
+	            		<input type="text" name="search">
+	            	</div>
+	            	<button type="submit" class="btn btn-success">Search A City</button>
+	            </form>
+
+	        </div>
+		</div>
+	</nav>
+	<div class="jumbotron">
+		<h1>Day Tripper</h1>
+		<p class="lead">Plan Your Next Adventure</p>
+	</div>
+	<hr>
+	<div class="row-fluid">
+	<% @itineraries.each do |i| %>
+		<div class="span4">
+			<h2><a href="/itineraries/show/<%=i.id%>"><%=i.city%></a></h2>
+			<p><%=i.description%></p>
+		</div>
+	<% end %>
+	</div>
+
+</div>
